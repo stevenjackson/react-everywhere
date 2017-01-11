@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import Session from './Session'
 
 class SessionList extends Component {
@@ -9,4 +10,7 @@ class SessionList extends Component {
     </div>
   }
 }
-export default SessionList
+
+const mapStateToProps = (state) => { return { sessions: state.sessions } }
+
+export default connect(mapStateToProps)(SessionList)
