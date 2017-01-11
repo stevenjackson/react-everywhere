@@ -1,0 +1,10 @@
+exports[`test matches snapshot 1`] = `
+<div>
+  <div>
+    title
+  </div>
+  <div>
+    abstract
+  </div>
+</div>
+`;
