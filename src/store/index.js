@@ -6,7 +6,12 @@ const DEFAULT_STATE = {
 }
 
 const reducer = (state = DEFAULT_STATE, action) => {
-  return state
+  switch(action.type) {
+    case 'FETCHED_SESSIONS':
+      return {...state, sessions: action.sessions}
+    default:
+      return state
+  }
 }
 
 const store = createStore(reducer);

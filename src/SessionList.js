@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Session from './Session'
 
+const URL = './session.json'
 class SessionList extends Component {
+  constructor(props) {
+    super(props);
+    const { fetchedSessions } = this.props;
+    //wha???
+    fetch(URL).then(r => r.json()).then((sessions) => fetchedSessions(sessions))
+  }
   render() {
     const { sessions } = this.props
     return <div>
@@ -12,5 +19,10 @@ class SessionList extends Component {
 }
 
 const mapStateToProps = (state) => ( { sessions: state.sessions } )
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchedSessions: (sessions) => dispatch({type: 'FETCHED_SESSIONS', sessions: sessions})
+  }
+}
 
-export default connect(mapStateToProps)(SessionList)
+export default connect(mapStateToProps, mapDispatchToProps)(SessionList)
