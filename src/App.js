@@ -18,6 +18,7 @@ class App extends Component {
             <img src={logo} className="App-logo-3" alt="logo" />
             <h2>Welcome to Codemash</h2>
           </div>
+            <Loading />
             <SessionList />
         </div>
       </Provider>

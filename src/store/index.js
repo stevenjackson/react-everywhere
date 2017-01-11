@@ -8,7 +8,7 @@ const DEFAULT_STATE = {
 const reducer = (state = DEFAULT_STATE, action) => {
   switch(action.type) {
     case 'FETCHED_SESSIONS':
-      return {...state, sessions: action.sessions}
+      return {...state, loading: false, sessions: action.sessions}
     default:
       return state
   }

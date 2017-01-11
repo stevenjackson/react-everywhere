@@ -6,7 +6,8 @@ const URL = './session.json'
 class SessionList extends Component {
   constructor(props) {
     super(props);
-    const { fetchedSessions } = this.props;
+    const { fetchedSessions } = this.props; //object destructuring //const fetchedSessions = this.props.fetchedSessions;
+
     //wha???
     fetch(URL).then(r => r.json()).then((sessions) => fetchedSessions(sessions))
   }
