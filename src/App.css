@@ -8,13 +8,13 @@
 }
 
 .App-logo-2 {
-  animation: App-logo-spin infinite .9s linear;
-  height: 40px;
+  animation: App-logo-spin-backwards infinite 10s linear;
+  height: 80px;
 }
 
 .App-logo-3 {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  animation: App-logo-spin infinite 1s linear;
+  height: 40px;
 }
 
 .App-header {
@@ -28,7 +28,37 @@
   font-size: large;
 }
 
+.session {
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+  padding-top: 5px;
+}
+
+.abstract {
+  border: 1px solid black;
+  padding: 20px;
+  text-align: left;
+}
+
+a {
+  color: #47cdbf;
+  text-decoration: none;
+}
+
+.abstract + a {
+  position: absolute;
+  display: inline;
+  top: 45px;
+  right: 5px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes App-logo-spin-backwards {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
