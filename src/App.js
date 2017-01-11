@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
-import { connect, Provider } from 'react-redux'
+import { Provider } from 'react-redux'
 import logo from '../public/codemash.png';
 import './App.css';
 import store from './store/index'
 import SessionList from './SessionList'
-
-
-//Example of compnent that renders children
-//TODO - fix x problem by passing abstract through the link function?
-class _Loading extends Component {
-  render() {
-    if (this.props.loading) return <h1>Loading...</h1>
-    return <div>{this.props.children}</div>
-  }
-}
-
-const mapStateToProps = (state) => ( { loading: state.loading } )
-const Loading = connect(mapStateToProps)(_Loading);
+import Loading from './Loading'
 
 const URL = './session.json'
 
