@@ -11,6 +11,6 @@ class SessionList extends Component {
   }
 }
 
-const mapStateToProps = (state) => { return { sessions: state.sessions } }
+const mapStateToProps = (state) => ( { sessions: state.sessions } )
 
 export default connect(mapStateToProps)(SessionList)

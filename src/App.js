@@ -15,7 +15,7 @@ class _Loading extends Component {
   }
 }
 
-const mapStateToProps = (state) => { return { loading: state.loading } }
+const mapStateToProps = (state) => ( { loading: state.loading } )
 const Loading = connect(mapStateToProps)(_Loading);
 
 const URL = './session.json'
