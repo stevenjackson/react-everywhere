@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import R from 'ramda'
 import Session from './Session'
 
 const URL = './session.json'
@@ -20,25 +21,27 @@ class SessionList extends Component {
     fetch(URL).then(r => r.json()).then((sessions) => fetchedSessions(sessions))
   }
   filterSessions(sessionName) {
-    console.log(sessionName);
+    this.props.toggleSession(sessionName)
   }
+
   render() {
-    const { sessions } = this.props
+    const { sessions, filters } = this.props
     const filter = (sessionName) => this.filterSessions.bind(this, sessionName)
     return <div>
       <div className="toggles">
-        <Toggle text="Pre-Compiler" onToggle={filter("Pre-Compiler")}/>
-        <Toggle text="KidzMash" onToggle={filter("Kidz Mash")}/>
+        <Toggle text="Pre-Compiler" toggled={R.contains("Pre-Compiler", filters)} onToggle={filter("Pre-Compiler")}/>
+        <Toggle text="Kidz Mash" toggled={R.contains("Kidz Mash", filters)} onToggle={filter("Kidz Mash")}/>
       </div>
       { sessions.map(s => <Session key={s.Id} {...s} />) }
     </div>
   }
 }
 
-const mapStateToProps = (state) => ( { sessions: state.sessions } )
+const mapStateToProps = (state) => ( { sessions: state.sessions, filters: state.filters } )
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchedSessions: (sessions) => dispatch({type: 'FETCHED_SESSIONS', sessions: sessions})
+    fetchedSessions: (sessions) => dispatch({ type: 'FETCHED_SESSIONS', sessions: sessions }),
+    toggleSession: (sessionName) => dispatch({ type: 'TOGGLE_SESSION', sessionName: sessionName })
   }
 }
 
