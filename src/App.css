@@ -30,8 +30,6 @@
 
 .session {
   text-align: left;
-  position: relative;
-  margin: auto;
   padding: 10px;
   border-bottom: 2px solid #999;
 }
@@ -40,7 +38,6 @@
   border: 1px solid #999;
   max-width: 500px;
   padding: 20px;
-  text-align: left;
 }
 
 a {
@@ -48,11 +45,8 @@ a {
   text-decoration: none;
 }
 
-.abstract + a {
-  position: absolute;
-  display: inline;
-  top: 45px;
-  left: 540px;
+.abstract a {
+  float: right;
 }
 
 @keyframes App-logo-spin {

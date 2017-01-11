@@ -1,37 +1,40 @@
 import React, { Component } from 'react';
-//const Speaker stuff
-class Speaker extends Component {
-  render() {
-    return <div>
-      <div>{this.props.FirstName} {this.props.LastName}</div>
-    </div>
-  }
-}
+
+const Speaker = (props) => <div>{props.FirstName} {props.LastName}</div>
+
 class Session extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showDetails: false
     }
-
     this.toggleState = this.toggleState.bind(this)
   }
+
   toggleState(e) {
     e.preventDefault();
     this.setState({
       showDetails: !this.state.showDetails
     })
   }
-  abstractLink() {
-    return <a href="#" onClick={this.toggleState}>{ this.state.showDetails ? "X" : "show abstract"}</a>
+
+  abstractOpen(abstract) {
+    return <div className="abstract">
+      <a href="#" onClick={this.toggleState}>X</a>
+      <p>{abstract}</p>
+    </div>
   }
+
+  abstractClosed(abstract) {
+    return <a href="#" onClick={this.toggleState}>show abstract</a>
+  }
+
   render() {
     const { Title, Abstract } = this.props
     return <div className="session">
       <div>{Title}</div>
       <Speaker { ...this.props.Speakers[0] }/>
-      { this.state.showDetails && <div className="abstract">{Abstract}</div> }
-      { this.abstractLink() }
+      { this.state.showDetails ? this.abstractOpen(Abstract) : this.abstractClosed(Abstract) }
     </div>
   }
 }
