@@ -29,14 +29,16 @@
 }
 
 .session {
+  text-align: left;
   position: relative;
-  max-width: 500px;
   margin: auto;
-  padding-top: 5px;
+  padding: 10px;
+  border-bottom: 2px solid #999;
 }
 
 .abstract {
-  border: 1px solid black;
+  border: 1px solid #999;
+  max-width: 500px;
   padding: 20px;
   text-align: left;
 }
@@ -50,7 +52,7 @@ a {
   position: absolute;
   display: inline;
   top: 45px;
-  right: 5px;
+  left: 540px;
 }
 
 @keyframes App-logo-spin {

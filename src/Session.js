@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//const Speaker stuff
 class Speaker extends Component {
   render() {
     return <div>
